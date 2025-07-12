@@ -6,4 +6,3 @@ target_link_libraries(demo
     LIB_Card
 )
 
-#target_link_libraries(demo LIB_Card)
