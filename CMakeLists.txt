@@ -20,5 +20,9 @@ FetchContent_Declare(
 )
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Hand)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Player)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Deck)
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)

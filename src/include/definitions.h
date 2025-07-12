@@ -8,5 +8,5 @@
 
 
 //Define Default Card values that are only excepted by specific cards
-#define Default_Speed 2;
+#define Default_Speed 2
 
