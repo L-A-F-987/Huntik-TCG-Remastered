@@ -11,9 +11,8 @@ struct Attributes{
 };
 
 struct Conditions{
-    bool unblockable = false;
+    bool Unblockable = false;
     bool Ready = true;
-
 };
 
 class Card{
@@ -21,6 +20,8 @@ class Card{
     public:
 
     Attributes Attrabute;
+
+    Conditions Condition;
 
     void print_test();
         
