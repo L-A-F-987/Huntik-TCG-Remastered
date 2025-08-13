@@ -2,34 +2,44 @@
 #define Card_H_
 #include <iostream>
 #include "definitions.h"
-
-
-struct Attributes{
-    int Movement_Speed = Default_Speed;
-    int Attack; 
-    int Defence;
-};
+#include "Good_Card_def.h"
 
 struct Conditions{
     bool Unblockable = false;
     bool Ready = true;
 };
 
+struct Attributes{
+    int Movement_Speed = Default_Speed;
+    int Attack = 0; 
+    int Defence = 0;
+};
+
 class Card{
 
     public:
 
-    void print_test();
+    Card(int card_type, int movement_speed = Default_Speed, int attack = 0, int defence = 0, int unblockable = false, bool ready = true);
 
-    void fill_attributes(int Inputted_Attack, int Inputted_Defence, int Inputted_Movement_Speed = Default_Speed);
+    virtual int Unique_Effect();
 
-    Attributes Attrabute;
-        
+    int get_attack();
+    int get_defence();
+
+    bool has_ability = true;
+
+    int type;
+
     private:
 
-    int x;
+    Attributes attributes;
 
-    Conditions Condition;
+    Conditions conditions;
+
+    
+
+
+    
     
 
 

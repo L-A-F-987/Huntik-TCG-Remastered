@@ -3,37 +3,59 @@
 #include "Card.h"
 
 
-//Attrabute inititalisations
-TEST(CardTest,Attribute_Movement_inititalisation){
-    Attributes a;
-    EXPECT_EQ(a.Movement_Speed,2);
-};
-
-//Condition inititalisations
-TEST(CardTest,Conditions_Unblockable_inititalisation){
-    Conditions c;
-    EXPECT_FALSE(c.Unblockable);
-};
-
-TEST(CardTest,Conditions_ready_inititalisation){
-    Conditions c;
-    EXPECT_TRUE(c.Ready);
-};
-
-//Setting Functions
-TEST(CardTest,Setting_Attrabutes){
-    Card C;
-    int attack = 4;
-    int defence = 2;
-    int movement_speed = 3;
-    C.fill_attributes(attack,defence,movement_speed);
-    EXPECT_EQ(C.Attrabute.Attack,attack);
-    EXPECT_EQ(C.Attrabute.Defence,defence);
-    EXPECT_EQ(C.Attrabute.Movement_Speed,movement_speed);
+//Testing all type default constructors
+TEST(CardTest,Testing_Constructor_Minor_Hero){
     
-    C.fill_attributes(attack,defence);
-    EXPECT_EQ(C.Attrabute.Attack,attack);
-    EXPECT_EQ(C.Attrabute.Defence,defence);
-    EXPECT_EQ(C.Attrabute.Movement_Speed,Default_Speed);
-}
+    Card C(Minor_Hero);
+    EXPECT_EQ(C.type,Minor_Hero);
+    
+};
+
+TEST(CardTest,Testing_Constructor_Major_Hero){
+    
+    Card C(Major_Hero);
+    EXPECT_EQ(C.type,Major_Hero);
+    
+};
+
+TEST(CardTest,Testing_Constructor_Exhaust_Action){
+    
+    Card C(Exhaust_Action);
+    EXPECT_EQ(C.type,Exhaust_Action);
+    
+};
+
+TEST(CardTest,Testing_Constructor_Free_Action){
+    
+    Card C(Free_Action);
+    EXPECT_EQ(C.type,Free_Action);
+    
+};
+
+TEST(CardTest,Testing_Constructor_Combat_Action){
+    
+    Card C(Combat_Action);
+    EXPECT_EQ(C.type,Combat_Action);
+    
+};
+
+//Testing Default Attack and Defence Major and Minor
+
+TEST(CardTest,Testing_Default_Attack_Defence_Minor_Hero){
+    
+    Card C(Minor_Hero);
+    EXPECT_EQ(C.get_attack(),0);
+    EXPECT_EQ(C.get_defence(),0);
+    
+};
+
+TEST(CardTest,Testing_Constructor_Attack_Defence_Major_Hero){
+    
+    Card C(Major_Hero);
+    EXPECT_EQ(C.get_attack(),0);
+    EXPECT_EQ(C.get_defence(),0);
+    
+};
+
+
 
