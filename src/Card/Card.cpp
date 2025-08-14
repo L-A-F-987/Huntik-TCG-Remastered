@@ -1,13 +1,15 @@
 
 #include "Card.h"
 
-Card::Card(int card_type, int movement_speed, int attack, int defence, int unblockable, bool ready){
+Card::Card(int card_type,std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
 
     if (card_type > 4 || card_type < 0){
         throw std::invalid_argument( "invalid type" );
     }
 
     type = card_type;
+
+    Name = name;
 
     switch(type){
 
@@ -29,6 +31,16 @@ Card::Card(int card_type, int movement_speed, int attack, int defence, int unblo
 
 };
 
+std::string Card::get_name(){
+
+    if(!Name.empty()){
+        return Name;
+    }
+    else{
+        throw std::invalid_argument("No Name");
+    }
+};
+
 int Card::get_attack(){
 
     if(type == Major_Hero || type == Minor_Hero){
@@ -36,7 +48,7 @@ int Card::get_attack(){
     }
 
     else{
-        return -1;
+        throw std::invalid_argument("Action Card Has No Attribute: Attack");
     }
 };
 
@@ -47,11 +59,24 @@ int Card::get_defence(){
     }
 
     else{
-        return -1;
+        throw std::invalid_argument("Action Card Has No Attribute: Defence");
     }
 }
 
-int Card::Unique_Effect(){
+//Virtual Functions For possible Abilities
+int Card::Exhaust_Action(){
+
+    return -1;
+
+};
+
+int Card::Free_Action(){
+
+    return -1;
+
+};
+
+int Card::Combat_Action(){
 
     return -1;
 
