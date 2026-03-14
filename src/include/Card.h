@@ -44,14 +44,8 @@ class Card{
 
     Conditions conditions;
 
-    
-
-
-    
-    
-
 
 };
 
 
-#endif 
+#endif
