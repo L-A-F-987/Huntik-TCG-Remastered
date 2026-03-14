@@ -21,7 +21,7 @@ class Card{
     public:
 
     // Constructor
-    Card(int card_type,std::string name, int attack = 0, int defence = 0,int movement_speed = Default_Speed, int unblockable = false, bool ready = true);
+    Card(int h_level, int l_level,std::string name, int attack = 0, int defence = 0,int movement_speed = Default_Speed, int unblockable = false, bool ready = true);
 
     // Virtual Methods
     virtual int Exhaust_Action();
@@ -35,7 +35,8 @@ class Card{
 
     // Public Variables
     bool has_ability = true;
-    int type;
+    int high_level_type;
+    int low_level_type;
 
     private:
 
