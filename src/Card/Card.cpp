@@ -15,7 +15,7 @@ Card::Card(int card_type,std::string name, int attack, int defence, int movement
 
         case(Major_Hero):
         case(Minor_Hero):
-            
+
             //setting attributes
             attributes.Movement_Speed = movement_speed;
             attributes.Attack = attack;
