@@ -1,21 +1,13 @@
-
 #include "Card.h"
 
-Card::Card(int card_type,std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
-
-    if (card_type > 4 || card_type < 0){
-        throw std::invalid_argument( "invalid type" );
-    }
-
-    type = card_type;
+Card::Card(int h_type, int l_type, std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
 
     Name = name;
+    high_level_type = h_type;
+    low_level_type = l_type;
+    switch(high_level_type){
 
-    switch(type){
-
-        case(Major_Hero):
-        case(Minor_Hero):
-
+        case(HERO):
             //setting attributes
             attributes.Movement_Speed = movement_speed;
             attributes.Attack = attack;
@@ -24,6 +16,7 @@ Card::Card(int card_type,std::string name, int attack, int defence, int movement
             //setting conditions
             conditions.Unblockable = unblockable;
             conditions.Ready = ready;
+
             break;
 
     }
@@ -43,7 +36,7 @@ std::string Card::get_name(){
 
 int Card::get_attack(){
 
-    if(type == Major_Hero || type == Minor_Hero){
+    if(high_level_type == HERO){
         return attributes.Attack;
     }
 
@@ -54,8 +47,8 @@ int Card::get_attack(){
 
 int Card::get_defence(){
 
-    if(type == Major_Hero || type == Minor_Hero){
-        return attributes.Defence ;
+    if(high_level_type == HERO){
+        return attributes.Defence;
     }
 
     else{
