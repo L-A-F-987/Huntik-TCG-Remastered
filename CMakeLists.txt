@@ -7,7 +7,7 @@ set(CXX_STANDARD_REQUIRED On)
 
 project(Huntik_Remastered VERSION 1.0.0 LANGUAGES CXX)
 
-##compile options to check the code 
+##compile options to check the code
 add_compile_options(-Wall -Wconversion -Wextra -pedantic)
 
 enable_testing()
