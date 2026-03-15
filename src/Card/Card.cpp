@@ -1,11 +1,10 @@
 #include "Card.h"
 
-Card::Card(int h_type, int l_type, std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
+Card::Card(Type card_type, std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
 
     Name = name;
-    high_level_type = h_type;
-    low_level_type = l_type;
-    switch(high_level_type){
+    type = card_type;
+    switch(type.primary_type){
 
         case(HERO):
             //setting attributes
@@ -36,7 +35,7 @@ std::string Card::get_name(){
 
 int Card::get_attack(){
 
-    if(high_level_type == HERO){
+    if(type.primary_type == HERO){
         return attributes.Attack;
     }
 
@@ -47,7 +46,7 @@ int Card::get_attack(){
 
 int Card::get_defence(){
 
-    if(high_level_type == HERO){
+    if(type.primary_type == HERO){
         return attributes.Defence;
     }
 
