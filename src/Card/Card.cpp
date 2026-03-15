@@ -1,9 +1,12 @@
 #include "Card.h"
 
-Card::Card(Type card_type, std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
+Card::Card(Type card_type, std::string card_name, bool card_allignment,
+        int attack, int defence,int movement_speed, bool unblockable,
+        bool ready){
 
-    Name = name;
     type = card_type;
+    name = card_name;
+    allignment = card_allignment;
     switch(type.primary_type){
 
         case(HERO):
@@ -15,7 +18,6 @@ Card::Card(Type card_type, std::string name, int attack, int defence, int moveme
             //setting conditions
             conditions.Unblockable = unblockable;
             conditions.Ready = ready;
-
             break;
 
     }
@@ -25,8 +27,8 @@ Card::Card(Type card_type, std::string name, int attack, int defence, int moveme
 
 std::string Card::get_name(){
 
-    if(!Name.empty()){
-        return Name;
+    if(!name.empty()){
+        return name;
     }
     else{
         throw std::invalid_argument("No Name");
@@ -40,7 +42,7 @@ int Card::get_attack(){
     }
 
     else{
-        throw std::invalid_argument("Action Card Has No Attribute: Attack");
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
     }
 };
 
@@ -51,7 +53,7 @@ int Card::get_defence(){
     }
 
     else{
-        throw std::invalid_argument("Action Card Has No Attribute: Defence");
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Defence");
     }
 }
 

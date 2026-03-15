@@ -11,8 +11,8 @@ struct Conditions{
 };
 
 struct Type {
-  int primary_type; //Card type
-  int sub_type; //Card sub-type
+  int primary_type;
+  int sub_type;
 };
 
 struct Attributes{
@@ -26,7 +26,10 @@ class Card{
     public:
 
     // Constructor
-    Card(Type card_type,std::string name, int attack = 0, int defence = 0,int movement_speed = Default_Speed, int unblockable = false, bool ready = true);
+    Card(Type card_type,std::string name,bool alignment, int attack = 0, int defence = 0,
+        int movement_speed = Default_Speed, bool unblockable = false,
+        bool ready = true
+        );
 
     // Virtual Methods
     virtual int Exhaust_Action();
@@ -39,14 +42,15 @@ class Card{
     std::string get_name();
 
     // Public Variables
-    bool has_ability = true;
+    bool has_ability = false;
     // Setting type to by default be 1 larger than highest value card type by default
     Type type = {*(VALID_CARD_TYPES.end()) + 1, 0};
 
     private:
 
     // Private Variables
-    std::string Name = "";
+    std::string name = "";
+    bool allignment;
     Attributes attributes;
     Conditions conditions;
 
