@@ -1,6 +1,10 @@
 #include <set>
 
-// High Level Card Types
+// Allignment
+#define GOOD 0
+#define EVIL 1
+
+// Primary Card Types
 #define HERO 0
 #define SPELL 1
 #define ACTION 2
