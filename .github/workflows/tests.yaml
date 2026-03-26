@@ -17,5 +17,5 @@ jobs:
     - name: make
       run: cd build && make
     - name: Run Tests
-      run: tests_card
+      run: ./tests_card
 
