@@ -1,4 +1,4 @@
-name: Card Tests
+name: Unit Tests
 on:
   push:
     branches: [ main ]
@@ -16,6 +16,6 @@ jobs:
       run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
     - name: make
       run: cd build && make
-    - name: Run Unit Tests
+    - name: Card Unit Tests
       run: /home/runner/work/Huntik-TCG-Remastered/Huntik-TCG-Remastered/build/tests/unit_tests/tests_card
 
