@@ -10,6 +10,10 @@ project(Huntik_Remastered VERSION 1.0.0 LANGUAGES CXX)
 ## Compile options to check the code
 add_compile_options(-Wall -Wconversion -Wextra -pedantic)
 
+## Adding optional build flags
+option(ENABLE_LOGGING "Enable logging" On)
+option(ENABLE_ASSERTS "Enable asserts which validate functions during runtime" OFF)
+
 enable_testing()
 
 include(FetchContent)

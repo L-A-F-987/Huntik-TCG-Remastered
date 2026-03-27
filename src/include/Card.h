@@ -26,8 +26,14 @@ class Card{
     public:
 
     // Constructor
-    Card(Type card_type,std::string name,bool alignment, int attack = 0, int defence = 0,
-        int movement_speed = Default_Speed, bool unblockable = false,
+    Card(
+        Type card_type,
+        std::string name,
+        bool alignment,
+        int attack = 0,
+        int defence = 0,
+        int movement_speed = Default_Speed,
+        bool unblockable = false,
         bool ready = true
         );
 
