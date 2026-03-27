@@ -1,21 +1,24 @@
-
 #include "Card.h"
 
-Card::Card(int card_type,std::string name, int attack, int defence, int movement_speed, int unblockable, bool ready){
-
-    if (card_type > 4 || card_type < 0){
-        throw std::invalid_argument( "invalid type" );
-    }
+Card::Card(
+    Type card_type,
+    std::string card_name,
+    bool card_allignment,
+    int attack,
+    int defence,
+    int movement_speed,
+    bool unblockable,
+    bool ready)
+{
 
     type = card_type;
+    name = card_name;
+    allignment = card_allignment;
 
-    Name = name;
 
-    switch(type){
+    switch(type.primary_type){
 
-        case(Major_Hero):
-        case(Minor_Hero):
-
+        case(HERO):
             //setting attributes
             attributes.Movement_Speed = movement_speed;
             attributes.Attack = attack;
@@ -25,41 +28,55 @@ Card::Card(int card_type,std::string name, int attack, int defence, int movement
             conditions.Unblockable = unblockable;
             conditions.Ready = ready;
             break;
-
     }
 
 
-};
+}
 
 std::string Card::get_name(){
 
-    if(!Name.empty()){
-        return Name;
+    if  (!name.empty())
+    {
+        return name;
     }
-    else{
+    else
+    {
         throw std::invalid_argument("No Name");
     }
-};
+}
 
 int Card::get_attack(){
 
-    if(type == Major_Hero || type == Minor_Hero){
+    if  (type.primary_type == HERO)
+    {
         return attributes.Attack;
     }
 
-    else{
-        throw std::invalid_argument("Action Card Has No Attribute: Attack");
+    else
+    {
+#ifdef ENABLE_ASSERTS
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
+#endif
+
+        return -1;
     }
 };
 
 int Card::get_defence(){
 
-    if(type == Major_Hero || type == Minor_Hero){
-        return attributes.Defence ;
+    if  (type.primary_type == HERO)
+    {
+        return attributes.Defence;
     }
 
-    else{
-        throw std::invalid_argument("Action Card Has No Attribute: Defence");
+    else
+    {
+
+#ifdef ENABLE_ASSERTS
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Defence");
+#endif
+
+        return -1;
     }
 }
 
