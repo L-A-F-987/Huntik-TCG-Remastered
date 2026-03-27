@@ -1,12 +1,21 @@
 #include "Card.h"
 
-Card::Card(Type card_type, std::string card_name, bool card_allignment,
-        int attack, int defence,int movement_speed, bool unblockable,
-        bool ready){
+Card::Card(
+    Type card_type,
+    std::string card_name,
+    bool card_allignment,
+    int attack,
+    int defence,
+    int movement_speed,
+    bool unblockable,
+    bool ready)
+{
 
     type = card_type;
     name = card_name;
     allignment = card_allignment;
+
+
     switch(type.primary_type){
 
         case(HERO):
@@ -19,41 +28,55 @@ Card::Card(Type card_type, std::string card_name, bool card_allignment,
             conditions.Unblockable = unblockable;
             conditions.Ready = ready;
             break;
-
     }
 
 
-};
+}
 
 std::string Card::get_name(){
 
-    if(!name.empty()){
+    if  (!name.empty())
+    {
         return name;
     }
-    else{
+    else
+    {
         throw std::invalid_argument("No Name");
     }
-};
+}
 
 int Card::get_attack(){
 
-    if(type.primary_type == HERO){
+    if  (type.primary_type == HERO)
+    {
         return attributes.Attack;
     }
 
-    else{
+    else
+    {
+#ifdef ENABLE_ASSERTS
         throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
+#endif
+
+        return -1;
     }
 };
 
 int Card::get_defence(){
 
-    if(type.primary_type == HERO){
+    if  (type.primary_type == HERO)
+    {
         return attributes.Defence;
     }
 
-    else{
+    else
+    {
+
+#ifdef ENABLE_ASSERTS
         throw std::invalid_argument("Non-Hero Card Has No Attribute: Defence");
+#endif
+
+        return -1;
     }
 }
 
