@@ -60,21 +60,21 @@ TEST(CardTest,Testing_Constructor_COMBAT_ACTION){
 TEST(CardTest,Testing_Name_Constructor_MINOR_HERO){
 
     Card C(Type{HERO, MINOR_HERO}, "Test Name",GOOD);
-    EXPECT_EQ(C.get_name(),"Test Name");
+    EXPECT_EQ(C.GetName(),"Test Name");
 
 };
 
 TEST(CardTest,Testing_Name_Constructor_MAJOR_HERO){
 
     Card C(Type{HERO,MAJOR_HERO}, "Test Name",GOOD);
-    EXPECT_EQ(C.get_name(),"Test Name");
+    EXPECT_EQ(C.GetName(),"Test Name");
 
 };
 
 TEST(CardTest,Testing_Name_Constructor_ACTION){
 
     Card C(Type{ACTION, EXHAUST_ACTION}, "Test Name",GOOD);
-    EXPECT_EQ(C.get_name(),"Test Name");
+    EXPECT_EQ(C.GetName(),"Test Name");
 
 };
 
@@ -83,16 +83,16 @@ TEST(CardTest,Testing_Name_Constructor_ACTION){
 TEST(CardTest,Testing_Default_Attack_Defence_MINOR_HERO){
 
     Card C(Type{HERO,MINOR_HERO}, "test",GOOD);
-    EXPECT_EQ(C.get_attack(),0);
-    EXPECT_EQ(C.get_defence(),0);
+    EXPECT_EQ(C.GetAttack(),0);
+    EXPECT_EQ(C.GetDefence(),0);
 
 };
 
 TEST(CardTest,Testing_Constructor_Attack_Defence_MAJOR_HERO){
 
     Card C(Type{HERO,MAJOR_HERO}, "test",GOOD);
-    EXPECT_EQ(C.get_attack(),0);
-    EXPECT_EQ(C.get_defence(),0);
+    EXPECT_EQ(C.GetAttack(),0);
+    EXPECT_EQ(C.GetDefence(),0);
 
 };
 
@@ -101,16 +101,16 @@ TEST(CardTest,Testing_Constructor_Attack_Defence_MAJOR_HERO){
 TEST(CardTest,Testing_Constructor_Setting_Attack_Defence_MAJOR_HERO){
 
     Card C(Type{HERO,MAJOR_HERO},"test",GOOD ,5,4);
-    EXPECT_EQ(C.get_attack(),5);
-    EXPECT_EQ(C.get_defence(),4);
+    EXPECT_EQ(C.GetAttack(),5);
+    EXPECT_EQ(C.GetDefence(),4);
 
 };
 
 TEST(CardTest,Testing_Constructor_Setting_Attack_Defence_MINOR_HERO){
 
     Card C(Type{HERO,MINOR_HERO},"test",GOOD ,5,4);
-    EXPECT_EQ(C.get_attack(),5);
-    EXPECT_EQ(C.get_defence(),4);
+    EXPECT_EQ(C.GetAttack(),5);
+    EXPECT_EQ(C.GetDefence(),4);
 
 };
 
