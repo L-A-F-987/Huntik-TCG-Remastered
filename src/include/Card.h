@@ -26,30 +26,25 @@ class Card{
     public:
 
     // Constructor
-    Card(
-        Type card_type,
-        std::string name,
-        bool alignment,
-        int attack = 0,
-        int defence = 0,
-        int movement_speed = Default_Speed,
-        bool unblockable = false,
-        bool ready = true
+    Card(Type card_type, std::string name, bool alignment, int attack = 0,
+        int defence = 0, int movement_speed = Default_Speed,
+        bool unblockable = false, bool ready = true
         );
 
     // Virtual Methods
-    virtual int Exhaust_Action();
-    virtual int Free_Action();
-    virtual int Combat_Action();
+    virtual int ExhaustAction();
+    virtual int FreeAction();
+    virtual int CombatAction();
 
     // Getters
-    int get_attack();
-    int get_defence();
-    std::string get_name();
+    int GetAttack();
+    int GetDefence();
+    std::string GetName();
 
     // Public Variables
     bool has_ability = false;
-    // Setting type to by default be 1 larger than highest value card type by default
+    // Setting type to by default be 1 larger than highest value
+    // card type by default
     Type type = {*(VALID_CARD_TYPES.end()) + 1, 0};
 
     private:

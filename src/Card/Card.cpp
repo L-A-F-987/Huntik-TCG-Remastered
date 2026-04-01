@@ -1,13 +1,7 @@
 #include "Card.h"
 
-Card::Card(
-    Type card_type,
-    std::string card_name,
-    bool card_allignment,
-    int attack,
-    int defence,
-    int movement_speed,
-    bool unblockable,
+Card::Card(Type card_type, std::string card_name, bool card_allignment,
+    int attack, int defence, int movement_speed, bool unblockable,
     bool ready)
 {
 
@@ -33,7 +27,7 @@ Card::Card(
 
 }
 
-std::string Card::get_name(){
+std::string Card::GetName(){
 
     if  (!name.empty())
     {
@@ -45,7 +39,7 @@ std::string Card::get_name(){
     }
 }
 
-int Card::get_attack(){
+int Card::GetAttack(){
 
     if  (type.primary_type == HERO)
     {
@@ -54,15 +48,15 @@ int Card::get_attack(){
 
     else
     {
-#ifdef ENABLE_ASSERTS
+    #ifdef ENABLE_ASSERTS
         throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
-#endif
+    #endif
 
         return -1;
     }
 };
 
-int Card::get_defence(){
+int Card::GetDefence(){
 
     if  (type.primary_type == HERO)
     {
@@ -71,29 +65,28 @@ int Card::get_defence(){
 
     else
     {
-
-#ifdef ENABLE_ASSERTS
+    #ifdef ENABLE_ASSERTS
         throw std::invalid_argument("Non-Hero Card Has No Attribute: Defence");
-#endif
+    #endif
 
         return -1;
     }
 }
 
 //Virtual Functions For possible Abilities
-int Card::Exhaust_Action(){
+int Card::ExhaustAction(){
 
     return -1;
 
 };
 
-int Card::Free_Action(){
+int Card::FreeAction(){
 
     return -1;
 
 };
 
-int Card::Combat_Action(){
+int Card::CombatAction(){
 
     return -1;
 
