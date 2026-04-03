@@ -1,25 +1,24 @@
 #include "Deck.h"
 
 
-Deck::Deck(Card* starting_cards, std::string provided_name){
+Deck::Deck(std::deque<Card> starting_cards, std::string provided_name){
 
     name = provided_name;
 
     // fill the deck with cards and shuffle
-    Deck::FillDeck(starting_cards);
-    std::shuffle(deck.begin(), deck.end(), seed);
+    cards = starting_cards;
+    Shuffle();
 }
 
-void Deck::FillDeck(Card* starting_cards){
-    // add each of the cards to the deck from the deck recipe
-    for(int i = 0; i<sizeof(starting_cards) / sizeof(starting_cards[0]); i++){
-        deck.push_back(starting_cards[i]);
-    }
+void Deck::Shuffle(){
+    std::shuffle(cards.begin(), cards.end(), seed);
+}
 
-    #ifdef ENABLE_ASSERTS
-        assert(
-            sizeof(starting_cards) / sizeof(starting_cards[0]) ==
-            starting_cards.size()
-        );
-    #endif
+
+std::string Deck::GetDeckName(){
+    if (name != "none"){
+        return name;
+    }
+     throw std::invalid_argument("Name has not been defined");
+
 }
