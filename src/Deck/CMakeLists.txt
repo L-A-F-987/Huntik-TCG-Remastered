@@ -6,6 +6,10 @@ add_library(LIB_Deck
 target_include_directories(LIB_Deck
     PUBLIC
     "${PROJECT_SOURCE_DIR}/src/include"
-    LIB_CARD
+)
+
+target_link_libraries(LIB_Deck
+    PUBLIC
+    LIB_Card
 )
 

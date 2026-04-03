@@ -31,6 +31,9 @@ class Card{
         bool unblockable = false, bool ready = true
         );
 
+    // Anchoring Virtual Destructor
+    virtual ~Card() = default;
+
     // Virtual Methods
     virtual int ExhaustAction();
     virtual int FreeAction();

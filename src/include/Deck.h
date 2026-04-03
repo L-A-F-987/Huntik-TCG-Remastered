@@ -11,17 +11,22 @@ class Deck{
 
     public:
         // constructor
-        Deck(Card* cards_location, std::string provided_name = "none");
+        Deck(std::deque<Card> starting_cards, std::string provided_name = "none");
 
         // getters
         int GetDeckSize();
+        std::string GetDeckName();
+
+        // functions for modiying deck
+        Card DrawCard();
+        void Shuffle();
 
         // public variables
-        std::deque<Card> deck;
+        std::deque<Card> cards;
         std::string name;
+
     private:
         // setters
-        void Deck::FillDeck(Card* starting_cards);
 
         // private variables
         std::thread thr_deck_management;
