@@ -26,7 +26,7 @@ std::string Deck::GetDeckName(){
 
 std::optional<Card> Deck::DrawCard(){
 
-    // return none if there are no card to draw
+    // return none if there is no card to draw
     if (cards.empty()){
         return std::nullopt;
     }
