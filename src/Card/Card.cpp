@@ -13,10 +13,15 @@ Card::Card(Type card_type, std::string card_name, bool card_allignment,
     switch(type.primary_type){
 
         case(HERO):
-            //setting attributes
+            //setting base attributes
             attributes.Movement_Speed = movement_speed;
+            attributes.Base_Attack = attack;
+            attributes.Base_Defence = defence;
+
+            // setting current values
             attributes.Attack = attack;
             attributes.Defence = defence;
+            attributes.Movement_Speed = movement_speed;
 
             //setting conditions
             conditions.Unblockable = unblockable;
@@ -39,7 +44,7 @@ std::string Card::GetName(){
     }
 }
 
-int Card::GetAttack(){
+int Card::GetCurrentAttack(){
 
     if  (type.primary_type == HERO)
     {
@@ -56,7 +61,7 @@ int Card::GetAttack(){
     }
 };
 
-int Card::GetDefence(){
+int Card::GetCurrentDefence(){
 
     if  (type.primary_type == HERO)
     {
@@ -72,6 +77,40 @@ int Card::GetDefence(){
         return -1;
     }
 }
+
+int Card::GetAttack(){
+
+    if  (type.primary_type == HERO)
+    {
+        return attributes.Base_Attack;
+    }
+
+    else
+    {
+    #ifdef ENABLE_ASSERTS
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
+    #endif
+
+        return -1;
+    }
+};
+
+int Card::GetDefence(){
+
+    if  (type.primary_type == HERO)
+    {
+        return attributes.Base_Defence;
+    }
+
+    else
+    {
+    #ifdef ENABLE_ASSERTS
+        throw std::invalid_argument("Non-Hero Card Has No Attribute: Attack");
+    #endif
+
+        return -1;
+    }
+};
 
 //Virtual Functions For possible Abilities
 int Card::ExhaustAction(){
