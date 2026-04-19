@@ -1,7 +1,6 @@
 #include "Deck.h"
 
 
-
 Deck::Deck(std::deque<Card> starting_cards, std::string provided_name){
 
     name = provided_name;
@@ -24,9 +23,10 @@ std::string Deck::GetDeckName(){
 
 }
 
+
 std::optional<Card> Deck::DrawCard(){
 
-    // return none if there is no card to draw
+    // return none if there are no card to draw
     if (cards.empty()){
         return std::nullopt;
     }
@@ -36,6 +36,7 @@ std::optional<Card> Deck::DrawCard(){
     cards.pop_front();
     return drawn;
 }
+
 
 int Deck::GetDeckSize(){
     return static_cast<int>(cards.size());

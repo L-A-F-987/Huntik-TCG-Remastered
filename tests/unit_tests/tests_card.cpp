@@ -27,6 +27,7 @@ TEST(CardTest,Testing_Constructor_MINOR_HERO){
 
 };
 
+
 TEST(CardTest,Testing_Constructor_MAJOR_HERO){
 
     Card C(Type {HERO, MAJOR_HERO}, "test",GOOD);
