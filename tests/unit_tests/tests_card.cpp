@@ -7,7 +7,7 @@
 
 TEST(CardTest,Testing_Constructor_HERO){
 
-    Card C(Type {HERO,MINOR_HERO}, "test",GOOD);
+    Card C(Type {HERO,HERO}, "test",GOOD);
     EXPECT_EQ(C.type.primary_type,MINOR_HERO);
 
 };

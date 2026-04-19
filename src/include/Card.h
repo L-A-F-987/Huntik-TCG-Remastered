@@ -16,9 +16,15 @@ struct Type {
 };
 
 struct Attributes{
-    int Movement_Speed = Default_Speed;
+    // Base values
+    int Base_Attack = 0;
+    int Base_Defence = 0;
+    int Base_Movement_Speed = Default_Speed;
+
+    // Current values
     int Attack = 0;
     int Defence = 0;
+    int Movement_Speed = Default_Speed;
 };
 
 class Card{
@@ -39,16 +45,31 @@ class Card{
     virtual int FreeAction();
     virtual int CombatAction();
 
-    // Getters
+    // Equality Operator
+    bool operator==(const Card& other) const {
+        return
+            name == other.name &&
+            type.primary_type == other.type.primary_type &&
+            type.sub_type == other.type.sub_type &&
+            attributes.Base_Attack == other.attributes.Base_Attack &&
+            attributes.Base_Defence == other.attributes.Base_Defence &&
+            attributes.Base_Movement_Speed == other.attributes.Base_Movement_Speed;
+    }
+
+    // Getters current
+    int GetCurrentAttack();
+    int GetCurrentDefence();
+
+    //Getters base
     int GetAttack();
     int GetDefence();
     std::string GetName();
 
     // Public Variables
     bool has_ability = false;
-    // Setting type to by default be 1 larger than highest value
-    // card type by default
-    Type type = {*(VALID_CARD_TYPES.end()) + 1, 0};
+
+    // Setting type to default to -1 to identify unset types
+    Type type = {-1, 0};
 
     private:
 

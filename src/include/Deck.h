@@ -6,6 +6,7 @@
 #include <thread>
 #include <deque>
 #include <algorithm>
+#include <optional>
 
 class Deck{
 
@@ -18,7 +19,7 @@ class Deck{
         std::string GetDeckName();
 
         // functions for modiying deck
-        Card DrawCard();
+        std::optional<Card> DrawCard();
         void Shuffle();
 
         // public variables

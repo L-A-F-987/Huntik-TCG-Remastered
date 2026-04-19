@@ -1,6 +1,7 @@
 #include "Deck.h"
 
 
+
 Deck::Deck(std::deque<Card> starting_cards, std::string provided_name){
 
     name = provided_name;
@@ -22,3 +23,21 @@ std::string Deck::GetDeckName(){
      throw std::invalid_argument("Name has not been defined");
 
 }
+
+std::optional<Card> Deck::DrawCard(){
+
+    // return none if there is no card to draw
+    if (cards.empty()){
+        return std::nullopt;
+    }
+
+    // take top card of the deck and pop
+    Card drawn = cards.front();
+    cards.pop_front();
+    return drawn;
+}
+
+int Deck::GetDeckSize(){
+    return static_cast<int>(cards.size());
+}
+
