@@ -1,3 +1,6 @@
+#ifndef definitions_H_
+#define definitions_H_
+
 #include <set>
 
 // Allignment
@@ -19,9 +22,18 @@
 #define COMBAT_ACTION 2
 
 // Set for all Card Types
-std::set<int> VALID_CARD_TYPES = {HERO,SPELL,ACTION};
-std::set<int> VALID_HERO_TYPES = {MINOR_HERO,MAJOR_HERO};
-std::set<int> VALID_ACTION_TYPES = {EXHAUST_ACTION,FREE_ACTION,COMBAT_ACTION};
+inline std::set<int> VALID_CARD_TYPES = {
+    HERO,SPELL,ACTION
+};
+inline std::set<int> VALID_HERO_TYPES = {
+    MINOR_HERO,MAJOR_HERO
+};
+inline std::set<int> VALID_ACTION_TYPES = {
+    EXHAUST_ACTION,
+    FREE_ACTION,COMBAT_ACTION
+};
+
 //Define Default Card values that are only excepted by specific cards
 #define Default_Speed 2
 
+#endif
