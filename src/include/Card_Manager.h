@@ -15,7 +15,8 @@ class CardManager{
         // Function to create the 8 char string from random chars
         std::string CreateRandomID();
         std::set<std::string> usedIDs;
-            // Random Numbers to create Seed
+
+        // Random Numbers to create Seed
         std::random_device seed;
         std::mt19937 generator;
         std::uniform_int_distribution<> dist;

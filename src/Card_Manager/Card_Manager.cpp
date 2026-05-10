@@ -15,6 +15,7 @@ std::string CardManager::GenerateCardID(){
         id = CreateRandomID();
     }
     while(usedIDs.find(id) != usedIDs.end());
+    usedIDs.insert(id);
     return id;
 };
 
@@ -27,4 +28,8 @@ std::string CardManager::CreateRandomID(){
     }
 
     return id;
+};
+
+int CardManager::GetNCardIds(){
+    return static_cast<int>(usedIDs.size());
 }
