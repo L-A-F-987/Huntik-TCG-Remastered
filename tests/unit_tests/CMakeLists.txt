@@ -1,6 +1,5 @@
 #include(AddGoogleTest)
 FetchContent_MakeAvailable(googletest)
-enable_testing()
 
 add_executable(tests_card tests_card.cpp)
 
