@@ -3,6 +3,7 @@
 #include <set>
 #include <string>
 #include <random>
+#include <stdexcept>
 
 class CardManager{
 

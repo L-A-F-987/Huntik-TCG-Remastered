@@ -2,6 +2,7 @@
 #define Card_H_
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include "definitions.h"
 #include "Good_Card_def.h"
 

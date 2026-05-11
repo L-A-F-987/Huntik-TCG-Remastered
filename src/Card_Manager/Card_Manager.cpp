@@ -10,7 +10,7 @@ std::string CardManager::GenerateCardID(){
     std::string id;
     do{
         if (attempts++ >= max_attepts_id_generation){
-            throw std::invalid_argument("CardManager: failed to generate unique ID");
+            throw std::runtime_error("CardManager: failed to generate unique ID");
         }
         id = CreateRandomID();
     }
