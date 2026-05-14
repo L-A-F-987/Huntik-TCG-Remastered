@@ -22,8 +22,10 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        v1.17.0 # release-1.17.0
 )
+FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card_Manager)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Hand)

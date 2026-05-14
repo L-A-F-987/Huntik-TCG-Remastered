@@ -19,8 +19,12 @@ jobs:
 
     - name: Card Unit Tests
       continue-on-error: true
-      run: ctest --test-dir build -R tests_card --output-on-failure
+      run: ctest --test-dir build -R CardTest --output-on-failure
 
     - name: Deck Unit Tests
       continue-on-error: true
-      run: ctest --test-dir build -R tests_deck --output-on-failure
+      run: ctest --test-dir build -R DeckTest --output-on-failure
+
+    - name: Card Manager Unit Tests
+      continue-on-error: true
+      run: ctest --test-dir build -R CardManagerTest --output-on-failure
