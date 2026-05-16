@@ -24,11 +24,17 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+
+# Subdirectories for all Classes
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card_Manager)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Deck)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/Game)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Hand)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Player)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/Deck)
+
+# Testing add_subdirectory
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+

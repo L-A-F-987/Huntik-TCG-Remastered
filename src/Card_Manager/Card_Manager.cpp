@@ -1,4 +1,5 @@
-#include "Card_Manager.h"
+# include "Card_Manager.h"
+
 
 CardManager::CardManager():
         generator(seed()),
