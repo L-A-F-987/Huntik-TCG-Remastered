@@ -48,13 +48,16 @@ void Deck::AddToDeck(Card* card, int location){
         cards.push_back(card);
         return;
     }
+    // Put Card to the top of the deck if 0 provided
     if(location == TOP_DECK){
         cards.push_front(card);
         return;
     };
+    // Put Card to provided index if provided index supported
     if(location < BOTTOM_DECK){
         throw std::invalid_argument(
-            std::string("Cannot at a negative index ") +  std::to_string(location)
+            std::string("Cannot insert at a negative index ") +
+            std::to_string(location)
         );
     };
     if(location >= GetDeckSize()){
