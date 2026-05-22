@@ -7,7 +7,7 @@ class Hand{
 
     public:
     int GetHandSize();
-    std::deque<Card*> ListCurrentCards();
+    std::vector<Card*> ListCurrentCards();
 
     // Functions to modify hand
     void AddCard(Card* card);
@@ -16,6 +16,11 @@ class Hand{
 
 
     private:
+    // Functions to search hand
+    bool CardInHand(Card* card);
+    bool FindCardByIndex(std::string index);
+
+    // Data structure storing cards
     std::vector<Card*> cards;
 
 

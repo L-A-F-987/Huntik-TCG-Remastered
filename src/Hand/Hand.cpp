@@ -6,8 +6,7 @@ int Hand::GetHandSize(){
 
 void Hand::AddCard(Card* card){
     cards.push_back(card);
-
-    if(std::find(cards.begin(),cards.end(),card) == cards.end()){
+    if(CardInHand(card) == false){
         throw std::runtime_error(
             "Tried to add card to hand but failed"
         );
@@ -23,4 +22,20 @@ void Hand::RemoveCard(Card* card){
         throw std::runtime_error("Cannot find card in hand");
     }
     cards.erase(index, cards.end());
+
+    if(CardInHand(card) == true){
+        throw std::runtime_error(
+            "Tried to remove card but failed"
+        );
+    }
+}
+
+bool Hand::CardInHand(Card* card){
+    /*
+    Verify that the card's pointer is stored in memory
+    */
+    if (std::find(cards.begin(),cards.end(),card) != cards.end()){
+        return true;
+    };
+    return false;
 }
