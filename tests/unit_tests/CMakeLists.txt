@@ -31,5 +31,15 @@ target_link_libraries(tests_card_manager
 )
 gtest_discover_tests(tests_card_manager)
 
+
+add_executable(tests_hand tests_hand.cpp)
+
+target_link_libraries(tests_hand
+    PRIVATE
+    LIB_Hand
+    GTest::gtest_main
+)
+gtest_discover_tests(tests_hand)
+
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
