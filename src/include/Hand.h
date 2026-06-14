@@ -2,6 +2,7 @@
 #define Hand_H_
 
 #include "Card.h"
+#include <vector>
 
 class Hand{
 
