@@ -3,6 +3,7 @@
 
 #include "Card.h"
 #include <vector>
+#include <algorithm>
 
 class Hand{
 

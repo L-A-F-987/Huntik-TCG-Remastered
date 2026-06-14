@@ -1,5 +1,6 @@
 #include "Hand.h"
 
+
 int Hand::GetHandSize(){
     return static_cast<int>(cards.size());
 }
