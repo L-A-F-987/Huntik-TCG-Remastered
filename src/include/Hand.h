@@ -1,7 +1,7 @@
 #ifndef Hand_H_
 #define Hand_H_
 
-#include "Deck.h"
+#include "Card.h"
 
 class Hand{
 
@@ -18,11 +18,10 @@ class Hand{
     private:
     // Functions to search hand
     bool CardInHand(Card* card);
-    bool FindCardByIndex(std::string index);
+    Card* FindCardByHandIndex(int index);
 
     // Data structure storing cards
     std::vector<Card*> cards;
-
 
 };
 
