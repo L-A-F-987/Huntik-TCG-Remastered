@@ -41,3 +41,11 @@ TEST(HandTest, Test_Remove_Card_Increments_n_Cards_by_1){
 
     EXPECT_EQ(test_hand.GetHandSize(), initial_hand_size - 1);
 }
+
+TEST(HandTest, Test_ListCurrentCards){
+    Card card_1(Type {HERO,MINOR_HERO}, "test 1", GOOD);
+    Hand test_hand;
+    test_hand.AddCard(&card_1);
+    std::vector<Card*>  expected_cards_in_hand = {&card_1};
+    EXPECT_EQ(test_hand.ListCurrentCards(), expected_cards_in_hand);
+}

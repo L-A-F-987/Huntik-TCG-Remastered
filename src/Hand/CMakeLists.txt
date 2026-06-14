@@ -10,6 +10,6 @@ target_include_directories(LIB_Hand
 
 target_link_libraries(LIB_Hand
     PUBLIC
-    LIB_Deck
+    LIB_Card
 )
 

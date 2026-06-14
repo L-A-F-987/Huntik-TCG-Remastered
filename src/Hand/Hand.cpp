@@ -30,6 +30,10 @@ void Hand::RemoveCard(Card* card){
     }
 }
 
+std::vector<Card*> Hand::ListCurrentCards(){
+    return cards;
+}
+
 bool Hand::CardInHand(Card* card){
     /*
     Verify that the card's pointer is stored in memory
@@ -38,4 +42,13 @@ bool Hand::CardInHand(Card* card){
         return true;
     };
     return false;
+}
+
+Card* Hand::FindCardByHandIndex(int index){
+    if (index < 0 || index >= static_cast<int>(GetHandSize())){
+        throw std::runtime_error(
+            "Cannot get card from index out of bounds"
+        );
+    }
+    return cards[static_cast<size_t>(index)];
 }
