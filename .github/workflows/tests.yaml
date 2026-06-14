@@ -25,6 +25,10 @@ jobs:
       continue-on-error: true
       run: ctest --test-dir build -R DeckTest --output-on-failure
 
+    - name: Hand Unit Tests
+      continue-on-error: true
+      run: ctest --test-dir build -R HandTest --output-on-failure
+
     - name: Card Manager Unit Tests
       continue-on-error: true
       run: ctest --test-dir build -R CardManagerTest --output-on-failure
