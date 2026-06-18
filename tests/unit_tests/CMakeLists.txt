@@ -41,5 +41,15 @@ target_link_libraries(tests_hand
 )
 gtest_discover_tests(tests_hand)
 
+add_executable(tests_board tests_board.cpp)
+
+target_link_libraries(tests_board
+    PRIVATE
+    LIB_Board
+    GTest::gtest_main
+)
+
+gtest_discover_tests(tests_board)
+
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)

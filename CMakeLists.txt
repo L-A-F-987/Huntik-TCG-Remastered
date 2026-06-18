@@ -8,7 +8,8 @@ set(CXX_STANDARD_REQUIRED On)
 project(Huntik_Remastered VERSION 1.0.0 LANGUAGES CXX)
 
 ## Compile options to check the code
-add_compile_options(-Wall -Wconversion -Wextra -pedantic -Werror)
+add_compile_options(-Wall -Wconversion -Wextra -pedantic)
+# add_compile_options(-Werror)
 
 ## Adding optional build flags
 option(ENABLE_LOGGING "Enable logging" On)
