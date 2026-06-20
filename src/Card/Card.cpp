@@ -1,13 +1,17 @@
 #include "Card.h"
 
-Card::Card(Type card_type, std::string card_name, bool card_allignment,
-    int attack, int defence, int movement_speed, bool unblockable,
-    bool ready)
+Card::Card(Type card_type, std::string card_name, std::string initial_cardID,
+    std::string initial_playerID, bool card_allignment, int attack, int defence,
+    int movement_speed, bool unblockable, bool ready)
 {
 
     type = card_type;
     name = card_name;
     allignment = card_allignment;
+
+    // Assigning Associated IDs
+    cardID = initial_cardID;
+    playerID= initial_playerID;
 
 
     switch(type.primary_type){
@@ -111,6 +115,14 @@ int Card::GetDefence(){
         return -1;
     }
 };
+
+std::string Card::GetAssociatedPlayerID(){
+    return playerID;
+}
+
+std::string Card::GetCardID(){
+    return cardID;
+}
 
 //Virtual Functions For possible Abilities
 int Card::ExhaustAction(){

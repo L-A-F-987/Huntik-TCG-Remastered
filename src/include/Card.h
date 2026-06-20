@@ -33,7 +33,8 @@ class Card{
     public:
 
     // Constructor
-    Card(Type card_type, std::string name, bool alignment, int attack = 0,
+    Card(Type card_type, std::string name, std::string initial_cardID,
+        std::string initial_playerID, bool alignment, int attack = 0,
         int defence = 0, int movement_speed = Default_Speed,
         bool unblockable = false, bool ready = true
         );
@@ -66,6 +67,10 @@ class Card{
     int GetDefence();
     std::string GetName();
 
+    // Getters IDs
+    std::string GetAssociatedPlayerID();
+    std::string GetCardID();
+
     // Public Variables
     bool has_ability = false;
 
@@ -79,6 +84,10 @@ class Card{
     bool allignment;
     Attributes attributes;
     Conditions conditions;
+
+    // IDs associated to this card
+    std::string cardID = "";
+    std::string playerID = "";
 
 };
 
