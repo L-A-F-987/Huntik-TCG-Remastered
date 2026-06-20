@@ -7,15 +7,27 @@ set(CXX_STANDARD_REQUIRED On)
 
 project(Huntik_Remastered VERSION 1.0.0 LANGUAGES CXX)
 
+
+
 ## Compile options to check the code
 add_compile_options(-Wall -Wconversion -Wextra -pedantic)
-# add_compile_options(-Werror)
+
+
+SET(MY_VARIABLE "option_value" CACHE STRING "Some user-specified option")
 
 ## Adding optional build flags
 option(ENABLE_LOGGING "Enable logging" On)
 option(ENABLE_ASSERTS "Enable asserts which validate functions during runtime" OFF)
+option(COMPILE_WITH_WERROR "Add Werror to the compilation options" On)
 
+# Enable Testing
 enable_testing()
+
+# Adding WERROR option if specifed
+if(COMPILE_WITH_WERROR)
+  add_compile_options(-Werror)
+endif()
+
 
 include(FetchContent)
 FetchContent_Declare(
