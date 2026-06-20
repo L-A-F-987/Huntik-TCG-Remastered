@@ -6,7 +6,7 @@
 TEST(DeckTest,Testing_Name_Declaration){
 
     // variables for deck test
-    Card card_1(Type {HERO,MINOR_HERO}, "test 1", GOOD);
+    Card card_1(Type {HERO,MINOR_HERO}, "test 1", "ABC", "123", GOOD);
     std::deque<Card*> test_cards_list = {&card_1};
     std::string name = "test";
 
@@ -20,7 +20,7 @@ TEST(DeckTest,Testing_Name_Declaration){
 // Testing Draw Function Calls
 
 TEST(DeckTest, Testing_Draw_Success) {
-    Card card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
+    Card card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
     std::deque<Card*> test_cards_list = {&card_1};
     Deck test_deck(test_cards_list, "test", false);
 
@@ -39,8 +39,8 @@ TEST(DeckTest, Testing_Draw_Failure) {
 }
 
 TEST(DeckTest, Testing_Draw_Decreases_Size) {
-    Card card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card card_2(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card card_2(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_cards_list = {&card_1, &card_2};
     Deck test_deck(test_cards_list, "test", false);
 
@@ -51,8 +51,8 @@ TEST(DeckTest, Testing_Draw_Decreases_Size) {
 
 // Testing Add Card Function
 TEST(DeckTest, Testing_Add_Card_Default) {
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1};
     Deck test_deck(test_card_list, "test", false);
 
@@ -74,8 +74,8 @@ TEST(DeckTest, Testing_Add_Card_Default) {
 }
 
 TEST(DeckTest, Testing_Add_Card_Bottom) {
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1};
     Deck test_deck(test_card_list, "test", false);
 
@@ -97,8 +97,8 @@ TEST(DeckTest, Testing_Add_Card_Bottom) {
 }
 
 TEST(DeckTest, Testing_Add_Card_Top) {
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1};
     Deck test_deck(test_card_list, "test", false);
 
@@ -120,9 +120,9 @@ TEST(DeckTest, Testing_Add_Card_Top) {
 }
 
 TEST(DeckTest, Testing_Add_Card_Specified_Location) {
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card initial_card_2(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card initial_card_2(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 3", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1, &initial_card_2};
     Deck test_deck(test_card_list, "test", false);
 
@@ -150,8 +150,8 @@ TEST(DeckTest, Testing_Add_Card_Specified_Location) {
 }
 
 TEST(DeckTest, Testing_Add_Card_Throw_Too_High_Index){
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1};
     Deck test_deck(test_card_list, "test", false);
 
@@ -162,8 +162,8 @@ TEST(DeckTest, Testing_Add_Card_Throw_Too_High_Index){
 }
 
 TEST(DeckTest, Testing_Add_Card_Throw_Too_Low_Index){
-    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", GOOD);
-    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", GOOD);
+    Card initial_card_1(Type{HERO, MINOR_HERO}, "test 1", "ABC", "123", GOOD);
+    Card inserted_card(Type{HERO, MINOR_HERO}, "test 2", "ABC", "123", GOOD);
     std::deque<Card*> test_card_list = {&initial_card_1};
     Deck test_deck(test_card_list, "test", false);
 
