@@ -14,6 +14,10 @@ add_compile_options(-Wall -Wconversion -Wextra -pedantic -Werror)
 option(ENABLE_LOGGING "Enable logging" On)
 option(ENABLE_ASSERTS "Enable asserts which validate functions during runtime" OFF)
 
+## Adding Option to include some file paths as part of compilation
+option(COMPILE_UNIT_TESTS "Compile Unit Tests" On)
+option(COMPILE_DEMO "Compile Demo File" On)
+
 enable_testing()
 
 include(FetchContent)
@@ -27,8 +31,16 @@ FetchContent_MakeAvailable(googletest)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Card_Manager)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
-add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Hand)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Player)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Deck)
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+
+## If specifed compile with unit tests
+if (COMPILE_UNIT_TESTS)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+endif()
+
+# If specified compile the demo
+if (COMPILE_DEMO)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
+endif()
