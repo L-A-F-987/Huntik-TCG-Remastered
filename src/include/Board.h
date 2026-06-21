@@ -20,7 +20,7 @@ class Board{
     private:
     std::array<std::vector<Card*>,5> rows = {};
 
-    void ValidRow_(int row_number);
+    void ValidRowNumber_(int row_number);
 };
 
 #endif
