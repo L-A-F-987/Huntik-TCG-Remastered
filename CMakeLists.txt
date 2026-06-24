@@ -27,11 +27,6 @@ option(COMPILE_WITH_WERROR "Add Werror to the compilation options" On)
 # Enable Testing
 enable_testing()
 
-# Adding WERROR option if specifed
-if(COMPILE_WITH_WERROR)
-  add_compile_options(-Werror)
-endif()
-
 
 include(FetchContent)
 FetchContent_Declare(
@@ -56,4 +51,9 @@ endif()
 # If specified compile the demo
 if (COMPILE_DEMO)
   add_subdirectory(${CMAKE_SOURCE_DIR}/src/demo)
+endif()
+
+# Adding WERROR option if specifed
+if(COMPILE_WITH_WERROR)
+  add_compile_options(-Werror)
 endif()
