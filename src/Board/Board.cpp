@@ -43,11 +43,16 @@ void Board::RemoveCardFromRow(int row_number, Card* card){
 
     if (search_result == rows[static_cast<std::size_t>(row_number)].cards.end()){
         std::ostringstream error_msg;
-        error_msg   << "Cannot Remove Card which is not stored in Row"
+        error_msg   << "Cannot Remove Card which is not stored in Row "
                     << std::to_string(row_number);
-        throw std::runtime_error("Cannot Remove Card which is not stored in Row");
+        throw std::runtime_error(error_msg.str());
     };
 
     rows[static_cast<std::size_t>(row_number)].cards.erase(search_result);
 
+}
+
+void Board::MoveCardAcrossRows(int row_of_origin, int row_moved_to, Card* card){
+    RemoveCardFromRow(row_of_origin, card);
+    AddCardToRow(row_moved_to, card);
 }

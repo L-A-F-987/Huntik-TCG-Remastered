@@ -25,6 +25,23 @@ TEST(BoardTest,Test_ListCardsInRowByPlayerId){
 
 }
 
+TEST(BoardTest, Test_MoveCardAcrossRows_Succeeds){
+    Board board;
+    Card test_card(Type {HERO,HERO}, "test", "ABC", "123", GOOD);
+    std::vector<Card*> expected_row = {&test_card};
+    int initial_row = 0;
+    int target_row = 2;
+    std::vector<Card*> expected_blank_row = {};
+    std::vector<Card*> expected_row_with_card = {&test_card};
+
+    // Add Card to Row then Move it to another Row
+    board.AddCardToRow(initial_row, &test_card);
+    board.MoveCardAcrossRows(initial_row, target_row, &test_card);
+    EXPECT_EQ(expected_blank_row, board.ListCardsInRow(initial_row));
+    EXPECT_EQ(expected_row_with_card, board.ListCardsInRow(target_row));
+}
+
+
 TEST(BoardTest,Test_AddCardToRow_Succeeds){
     Board board;
     Card test_card(Type {HERO,HERO}, "test", "ABC", "123", GOOD);

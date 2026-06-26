@@ -36,6 +36,7 @@ class Board{
     // Modify Rows
     void AddCardToRow(int row_number, Card* card);
     void RemoveCardFromRow(int row_number, Card* card);
+    void MoveCardAcrossRows(int row_of_origin, int row_moved_to, Card* card);
 
 
 
