@@ -3,11 +3,12 @@ add_library(LIB_Board
   Board.cpp
 )
 
-target_link_libraries(LIB_Board PRIVATE LIB_Card)
-
 target_include_directories(LIB_Board
     PUBLIC
     "${PROJECT_SOURCE_DIR}/src/include"
 )
 
-
+target_link_libraries(LIB_Board
+  PUBLIC
+  LIB_Card
+)

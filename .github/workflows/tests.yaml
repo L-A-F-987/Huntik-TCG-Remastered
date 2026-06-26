@@ -35,3 +35,7 @@ jobs:
     - name: Card Manager Unit Tests
       continue-on-error: true
       run: ctest --test-dir build -R CardManagerTest --output-on-failure
+
+    - name: Board Unit Tests
+      continue-on-error: true
+      run: ctest --test-dir build -R BoardTest --output-on-failure
