@@ -2,6 +2,7 @@
 #define Board_H_
 
 #include "Card.h"
+#include <algorithm>
 #include <array>
 #include <sstream>
 #include <vector>
