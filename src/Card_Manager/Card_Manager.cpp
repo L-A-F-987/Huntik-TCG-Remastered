@@ -23,7 +23,7 @@ std::string CardManager::CreateRandomID(){
 
     std::string id = "";
 
-    for(int i =0; i<8; i++){
+    for(int i =0; i<card_id_length; i++){
         id += valid_chars[static_cast<size_t>(dist(generator))];
     }
 
