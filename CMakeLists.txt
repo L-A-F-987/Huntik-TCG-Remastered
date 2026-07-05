@@ -42,6 +42,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/src/Board)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Hand)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Player)
 add_subdirectory(${CMAKE_SOURCE_DIR}/src/Deck)
+add_subdirectory(${CMAKE_SOURCE_DIR}/src/DropZone)
 
 ## If specifed compile with unit tests
 if (COMPILE_UNIT_TESTS)
