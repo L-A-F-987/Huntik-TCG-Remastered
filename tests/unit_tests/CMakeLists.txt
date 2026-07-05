@@ -22,6 +22,15 @@ target_link_libraries(tests_deck
 
 gtest_discover_tests(tests_deck)
 
+add_executable(tests_dropzone tests_dropzone.cpp)
+
+target_link_libraries(tests_dropzone
+    PRIVATE
+    LIB_DropZone
+    GTest::gtest_main
+)
+gtest_discover_tests(tests_dropzone)
+
 add_executable(tests_card_manager tests_card_manager.cpp)
 
 target_link_libraries(tests_card_manager
